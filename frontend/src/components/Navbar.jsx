@@ -23,9 +23,9 @@ const Navbar = () => {
                 <ul className="nav-links">
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/jobs">Browse Job</Link></li>
-                    <li><Link to="/">Pages ▾</Link></li>
-                    <li><Link to="/">Blog ▾</Link></li>
-                    <li><Link to="/">Contact</Link></li>
+                    <li><a href="#" onClick={(e) => { e.preventDefault(); alert("Pages section coming soon!"); }}>Pages ▾</a></li>
+                    <li><a href="#" onClick={(e) => { e.preventDefault(); alert("Blog coming soon!"); }}>Blog ▾</a></li>
+                    <li><a href="#" onClick={(e) => { e.preventDefault(); alert("Contact us at contact@jobboard.com"); }}>Contact</a></li>
                 </ul>
 
                 <div className="nav-auth">

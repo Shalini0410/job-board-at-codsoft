@@ -10,7 +10,7 @@ export const JobProvider = ({ children }) => {
     const fetchJobs = async (keyword = '', location = '', category = '') => {
         setLoading(true);
         try {
-            const { data } = await axios.get(`http://localhost:5000/api/jobs?keyword=${keyword}&location=${location}&category=${category}`);
+            const { data } = await axios.get(`http://127.0.0.1:5000/api/jobs?keyword=${keyword}&location=${location}&category=${category}`);
             setJobs(data);
         } catch (error) {
             console.error('Error fetching jobs', error);

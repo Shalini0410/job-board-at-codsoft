@@ -23,7 +23,7 @@ const Home = () => {
                         <span className="job-count">4536+ Jobs listed</span>
                         <h1 className="hero-title">Find your Dream Job</h1>
                         <p className="hero-subtitle">We provide online instant cash loans with quick approval that suit your term length</p>
-                        <button className="btn btn-secondary">Upload Your Resume</button>
+                        <button className="btn btn-secondary" onClick={() => navigate('/register')}>Upload Your Resume</button>
                     </div>
                     <div className="hero-image animate-fade-in" style={{ animationDelay: '0.2s' }}>
                         <div className="placeholder-illustration">

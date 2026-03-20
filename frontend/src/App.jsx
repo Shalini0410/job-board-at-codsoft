@@ -6,7 +6,16 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import JobDetails from './pages/JobDetails';
 import Jobs from './pages/Jobs';
-import Dashboard from './pages/Dashboard';
+import EmployerDashboard from './pages/EmployerDashboard';
+import CandidateDashboard from './pages/CandidateDashboard';
+import { AuthContext } from './context/AuthContext';
+import { useContext } from 'react';
+
+const DashboardRouter = () => {
+  const { user } = useContext(AuthContext);
+  if (!user) return <Login />;
+  return user.role === 'employer' ? <EmployerDashboard /> : <CandidateDashboard />;
+};
 
 function App() {
   return (
@@ -19,7 +28,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/job/:id" element={<JobDetails />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<DashboardRouter />} />
         </Routes>
       </main>
     </Router>

@@ -20,7 +20,7 @@ const JobDetails = () => {
     useEffect(() => {
         const fetchJob = async () => {
             try {
-                const { data } = await axios.get(`http://localhost:5000/api/jobs/${id}`);
+                const { data } = await axios.get(`http://127.0.0.1:5000/api/jobs/${id}`);
                 setJob(data);
             } catch (error) {
                 setMessage({ text: 'Error fetching job details', type: 'error' });
@@ -51,7 +51,7 @@ const JobDetails = () => {
                 }
             };
             
-            await axios.post(`http://localhost:5000/api/applications/${id}/apply`, formData, config);
+            await axios.post(`http://127.0.0.1:5000/api/applications/${id}/apply`, formData, config);
             setMessage({ text: 'Application submitted successfully!', type: 'success' });
             // Hide the apply form
             setApplying(false);
