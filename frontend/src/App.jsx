@@ -8,6 +8,8 @@ import JobDetails from './pages/JobDetails';
 import Jobs from './pages/Jobs';
 import EmployerDashboard from './pages/EmployerDashboard';
 import CandidateDashboard from './pages/CandidateDashboard';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
 import { AuthContext } from './context/AuthContext';
 import { useContext } from 'react';
 
@@ -29,6 +31,8 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/job/:id" element={<JobDetails />} />
           <Route path="/dashboard" element={<DashboardRouter />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
     </Router>

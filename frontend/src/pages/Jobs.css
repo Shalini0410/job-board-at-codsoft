@@ -113,9 +113,24 @@
     width: 100%;
 }
 
-.loader, .no-jobs {
+.loader,
+.no-jobs {
     text-align: center;
     padding: 50px;
     font-size: 1.2rem;
     color: var(--gray);
+}
+
+@media (max-width: 768px) {
+    .jobs-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .job-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .job-card {
+        padding: 20px;
+    }
 }

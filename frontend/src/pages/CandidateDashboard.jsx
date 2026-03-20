@@ -36,26 +36,54 @@ const CandidateDashboard = () => {
                 <h2>Candidate Dashboard</h2>
                 <p>Welcome back, {user.name}. Track your job applications below.</p>
             </div>
-            
-            <div className="candidate-dashboard">
-                <h3>Your Job Applications</h3>
-                <div className="applied-jobs-list">
-                    {appliedJobs.length === 0 ? (
-                        <p className="no-data">You haven't applied to any jobs yet. <Link to="/jobs" style={{color: 'var(--primary)', textDecoration: 'underline'}}>Browse Jobs</Link></p>
-                    ) : (
-                        appliedJobs.map((app) => (
-                            <div key={app._id} className="dashboard-item-card">
-                                <div className="item-header">
-                                    <h4><Link to={`/job/${app.job._id}`}>{app.job.title} at {app.job.company}</Link></h4>
-                                    <span className={`status-badge status-${app.status.toLowerCase()}`}>{app.status}</span>
+
+            <div className="dashboard-stats">
+                <div className="stat-card">
+                    <span className="stat-value">{appliedJobs.length}</span>
+                    <span className="stat-label">Applied Jobs</span>
+                </div>
+                <div className="stat-card">
+                    <span className="stat-value">1</span>
+                    <span className="stat-label">Interviews</span>
+                </div>
+                <div className="stat-card">
+                    <span className="stat-value">85%</span>
+                    <span className="stat-label">Profile Strength</span>
+                </div>
+            </div>
+
+            <div className="dashboard-main-grid">
+                <div className="candidate-dashboard">
+                    <h3>Your Job Applications</h3>
+                    <div className="applied-jobs-list">
+                        {appliedJobs.length === 0 ? (
+                            <p className="no-data">You haven't applied to any jobs yet. <Link to="/jobs" style={{ color: 'var(--primary)', textDecoration: 'underline' }}>Browse Jobs</Link></p>
+                        ) : (
+                            appliedJobs.map((app) => (
+                                <div key={app._id} className="dashboard-item-card">
+                                    <div className="item-header">
+                                        <h4><Link to={`/job/${app.job._id}`}>{app.job.title} at {app.job.company}</Link></h4>
+                                        <span className={`status-badge status-${app.status.toLowerCase()}`}>{app.status}</span>
+                                    </div>
+                                    <div className="item-meta">
+                                        <span>Applied on: {new Date(app.createdAt).toLocaleDateString()}</span>
+                                        {app.resume && <span style={{ marginLeft: '15px' }}><a href={`http://127.0.0.1:5000${app.resume}`} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)' }}>View Resume</a></span>}
+                                    </div>
                                 </div>
-                                <div className="item-meta">
-                                    <span>Applied on: {new Date(app.createdAt).toLocaleDateString()}</span>
-                                    {app.resume && <span style={{marginLeft: '15px'}}><a href={`http://127.0.0.1:5000${app.resume}`} target="_blank" rel="noreferrer" style={{color: 'var(--primary)'}}>View Resume</a></span>}
-                                </div>
-                            </div>
-                        ))
-                    )}
+                            ))
+                        )}
+                    </div>
+                </div>
+
+                <div className="dashboard-sidebar">
+                    <div className="sidebar-tip-card">
+                        <h4>🚀 Career Tips</h4>
+                        <ul>
+                            <li>Tailor your resume for each job application.</li>
+                            <li>Add your latest skills to stand out.</li>
+                            <li>Check back daily for new job postings.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
